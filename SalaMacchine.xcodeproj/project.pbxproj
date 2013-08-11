@@ -79,6 +79,7 @@
 		3F35FA4D17B80D530029584F /* LCLogicControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLogicControl.h; sourceTree = "<group>"; };
 		3F35FA4E17B80D530029584F /* LCLogicControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLogicControl.m; sourceTree = "<group>"; };
 		3F35FA5017B812DF0029584F /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		3F35FA5417B81E820029584F /* LCLogicControlLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLogicControlLayout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +198,7 @@
 		3F35FA4C17B80D420029584F /* Logic Control */ = {
 			isa = PBXGroup;
 			children = (
+				3F35FA5417B81E820029584F /* LCLogicControlLayout.h */,
 				3F35FA4D17B80D530029584F /* LCLogicControl.h */,
 				3F35FA4E17B80D530029584F /* LCLogicControl.m */,
 			);
@@ -424,6 +426,7 @@
 				3F35FA1B17B7EEEF0029584F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
