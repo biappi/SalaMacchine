@@ -28,6 +28,8 @@
 		3F35FA4717B7F0060029584F /* NIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3917B7F0060029584F /* NIResponse.m */; };
 		3F35FA4817B7F0060029584F /* NIServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3A17B7F0060029584F /* NIServer.m */; };
 		3F35FA4B17B803690029584F /* SMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA4A17B803680029584F /* SMController.m */; };
+		3F35FA4F17B80D530029584F /* LCLogicControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA4E17B80D530029584F /* LCLogicControl.m */; };
+		3F35FA5117B812DF0029584F /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35FA5017B812DF0029584F /* CoreMIDI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,9 @@
 		3F35FA3A17B7F0060029584F /* NIServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIServer.m; sourceTree = "<group>"; };
 		3F35FA4917B803680029584F /* SMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMController.h; sourceTree = "<group>"; };
 		3F35FA4A17B803680029584F /* SMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMController.m; sourceTree = "<group>"; };
+		3F35FA4D17B80D530029584F /* LCLogicControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLogicControl.h; sourceTree = "<group>"; };
+		3F35FA4E17B80D530029584F /* LCLogicControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLogicControl.m; sourceTree = "<group>"; };
+		3F35FA5017B812DF0029584F /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F35FA5117B812DF0029584F /* CoreMIDI.framework in Frameworks */,
 				3F35FA0017B7EEEF0029584F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +118,7 @@
 				3F35FA0217B7EEEF0029584F /* AppKit.framework */,
 				3F35FA0417B7EEEF0029584F /* Foundation.framework */,
 				3F35F9FF17B7EEEF0029584F /* Cocoa.framework */,
+				3F35FA5017B812DF0029584F /* CoreMIDI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 			children = (
 				3F35FA0617B7EEEF0029584F /* Boilerplate */,
 				3F35FA1D17B7EFEF0029584F /* NI Protocol */,
+				3F35FA4C17B80D420029584F /* Logic Control */,
 				3F35FA4917B803680029584F /* SMController.h */,
 				3F35FA4A17B803680029584F /* SMController.m */,
 				3F35FA1117B7EEEF0029584F /* SMAppDelegate.h */,
@@ -184,6 +192,15 @@
 				3F35FA3A17B7F0060029584F /* NIServer.m */,
 			);
 			name = "NI Protocol";
+			sourceTree = "<group>";
+		};
+		3F35FA4C17B80D420029584F /* Logic Control */ = {
+			isa = PBXGroup;
+			children = (
+				3F35FA4D17B80D530029584F /* LCLogicControl.h */,
+				3F35FA4E17B80D530029584F /* LCLogicControl.m */,
+			);
+			name = "Logic Control";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +285,7 @@
 				3F35FA4717B7F0060029584F /* NIResponse.m in Sources */,
 				3F35FA4817B7F0060029584F /* NIServer.m in Sources */,
 				3F35FA4B17B803690029584F /* SMController.m in Sources */,
+				3F35FA4F17B80D530029584F /* LCLogicControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

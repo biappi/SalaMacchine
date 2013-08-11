@@ -8,13 +8,15 @@
 
 #import "SMController.h"
 #import "NIAgentClient.h"
+#import "LCLogicControl.h"
 
 @interface SMController () <NIControllerNotificationsObserver>
 @end
 
 @implementation SMController
 {
-    NIAgentClient * mashineInterface;
+    NIAgentClient  * mashineInterface;
+    LCLogicControl * logicInterface;
 }
 
 - (id)init;
@@ -25,6 +27,8 @@
     mashineInterface = [NIAgentClient new];
     mashineInterface.notificationObserver = self;
     [mashineInterface connect];
+    
+    logicInterface = [LCLogicControl new];
     
     return self;
 }
