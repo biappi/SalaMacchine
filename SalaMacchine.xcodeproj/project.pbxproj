@@ -13,6 +13,20 @@
 		3F35FA1017B7EEEF0029584F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F35FA0E17B7EEEF0029584F /* Credits.rtf */; };
 		3F35FA1317B7EEEF0029584F /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA1217B7EEEF0029584F /* SMAppDelegate.m */; };
 		3F35FA1617B7EEEF0029584F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F35FA1417B7EEEF0029584F /* MainMenu.xib */; };
+		3F35FA3B17B7F0060029584F /* NIAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA2D17B7F0060029584F /* NIAgent.m */; };
+		3F35FA3C17B7F0060029584F /* NIAgentClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA2E17B7F0060029584F /* NIAgentClient.m */; };
+		3F35FA3D17B7F0060029584F /* NIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA2F17B7F0060029584F /* NIClient.m */; };
+		3F35FA3E17B7F0060029584F /* NIControllerNotificationServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3017B7F0060029584F /* NIControllerNotificationServer.m */; };
+		3F35FA3F17B7F0060029584F /* NIControllerRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3117B7F0060029584F /* NIControllerRequestClient.m */; };
+		3F35FA4017B7F0060029584F /* NIControllerRequestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3217B7F0060029584F /* NIControllerRequestServer.m */; };
+		3F35FA4117B7F0060029584F /* NIImageConversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3317B7F0060029584F /* NIImageConversions.m */; };
+		3F35FA4217B7F0060029584F /* NIMainHandlerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3417B7F0060029584F /* NIMainHandlerClient.m */; };
+		3F35FA4317B7F0060029584F /* NIMainHandlerServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3517B7F0060029584F /* NIMainHandlerServer.m */; };
+		3F35FA4417B7F0060029584F /* NIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3617B7F0060029584F /* NIMessage.m */; };
+		3F35FA4517B7F0060029584F /* NIMessageBases.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3717B7F0060029584F /* NIMessageBases.m */; };
+		3F35FA4617B7F0060029584F /* NIProtocolMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3817B7F0060029584F /* NIProtocolMessages.m */; };
+		3F35FA4717B7F0060029584F /* NIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3917B7F0060029584F /* NIResponse.m */; };
+		3F35FA4817B7F0060029584F /* NIServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA3A17B7F0060029584F /* NIServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +42,35 @@
 		3F35FA1117B7EEEF0029584F /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
 		3F35FA1217B7EEEF0029584F /* SMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMAppDelegate.m; sourceTree = "<group>"; };
 		3F35FA1517B7EEEF0029584F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3F35FA1E17B7F0060029584F /* NIAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIAgent.h; sourceTree = "<group>"; };
+		3F35FA1F17B7F0060029584F /* NIAgentClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIAgentClient.h; sourceTree = "<group>"; };
+		3F35FA2017B7F0060029584F /* NIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIClient.h; sourceTree = "<group>"; };
+		3F35FA2117B7F0060029584F /* NIControllerNotificationServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIControllerNotificationServer.h; sourceTree = "<group>"; };
+		3F35FA2217B7F0060029584F /* NIControllerRequestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIControllerRequestClient.h; sourceTree = "<group>"; };
+		3F35FA2317B7F0060029584F /* NIControllerRequestServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIControllerRequestServer.h; sourceTree = "<group>"; };
+		3F35FA2417B7F0060029584F /* NIImageConversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIImageConversions.h; sourceTree = "<group>"; };
+		3F35FA2517B7F0060029584F /* NIMainHandlerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMainHandlerClient.h; sourceTree = "<group>"; };
+		3F35FA2617B7F0060029584F /* NIMainHandlerServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMainHandlerServer.h; sourceTree = "<group>"; };
+		3F35FA2717B7F0060029584F /* NIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMessage.h; sourceTree = "<group>"; };
+		3F35FA2817B7F0060029584F /* NIMessageBases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMessageBases.h; sourceTree = "<group>"; };
+		3F35FA2917B7F0060029584F /* NIProtocolMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIProtocolMessages.h; sourceTree = "<group>"; };
+		3F35FA2A17B7F0060029584F /* NIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIResponse.h; sourceTree = "<group>"; };
+		3F35FA2B17B7F0060029584F /* NIServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIServer.h; sourceTree = "<group>"; };
+		3F35FA2C17B7F0060029584F /* TestImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestImage.h; sourceTree = "<group>"; };
+		3F35FA2D17B7F0060029584F /* NIAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAgent.m; sourceTree = "<group>"; };
+		3F35FA2E17B7F0060029584F /* NIAgentClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAgentClient.m; sourceTree = "<group>"; };
+		3F35FA2F17B7F0060029584F /* NIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIClient.m; sourceTree = "<group>"; };
+		3F35FA3017B7F0060029584F /* NIControllerNotificationServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIControllerNotificationServer.m; sourceTree = "<group>"; };
+		3F35FA3117B7F0060029584F /* NIControllerRequestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIControllerRequestClient.m; sourceTree = "<group>"; };
+		3F35FA3217B7F0060029584F /* NIControllerRequestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIControllerRequestServer.m; sourceTree = "<group>"; };
+		3F35FA3317B7F0060029584F /* NIImageConversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIImageConversions.m; sourceTree = "<group>"; };
+		3F35FA3417B7F0060029584F /* NIMainHandlerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMainHandlerClient.m; sourceTree = "<group>"; };
+		3F35FA3517B7F0060029584F /* NIMainHandlerServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMainHandlerServer.m; sourceTree = "<group>"; };
+		3F35FA3617B7F0060029584F /* NIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMessage.m; sourceTree = "<group>"; };
+		3F35FA3717B7F0060029584F /* NIMessageBases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMessageBases.m; sourceTree = "<group>"; };
+		3F35FA3817B7F0060029584F /* NIProtocolMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIProtocolMessages.m; sourceTree = "<group>"; };
+		3F35FA3917B7F0060029584F /* NIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIResponse.m; sourceTree = "<group>"; };
+		3F35FA3A17B7F0060029584F /* NIServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				3F35FA0617B7EEEF0029584F /* Boilerplate */,
+				3F35FA1D17B7EFEF0029584F /* NI Protocol */,
 				3F35FA1117B7EEEF0029584F /* SMAppDelegate.h */,
 				3F35FA1217B7EEEF0029584F /* SMAppDelegate.m */,
 			);
@@ -99,6 +143,42 @@
 				3F35FA0E17B7EEEF0029584F /* Credits.rtf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		3F35FA1D17B7EFEF0029584F /* NI Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3F35FA1E17B7F0060029584F /* NIAgent.h */,
+				3F35FA1F17B7F0060029584F /* NIAgentClient.h */,
+				3F35FA2017B7F0060029584F /* NIClient.h */,
+				3F35FA2117B7F0060029584F /* NIControllerNotificationServer.h */,
+				3F35FA2217B7F0060029584F /* NIControllerRequestClient.h */,
+				3F35FA2317B7F0060029584F /* NIControllerRequestServer.h */,
+				3F35FA2417B7F0060029584F /* NIImageConversions.h */,
+				3F35FA2517B7F0060029584F /* NIMainHandlerClient.h */,
+				3F35FA2617B7F0060029584F /* NIMainHandlerServer.h */,
+				3F35FA2717B7F0060029584F /* NIMessage.h */,
+				3F35FA2817B7F0060029584F /* NIMessageBases.h */,
+				3F35FA2917B7F0060029584F /* NIProtocolMessages.h */,
+				3F35FA2A17B7F0060029584F /* NIResponse.h */,
+				3F35FA2B17B7F0060029584F /* NIServer.h */,
+				3F35FA2C17B7F0060029584F /* TestImage.h */,
+				3F35FA2D17B7F0060029584F /* NIAgent.m */,
+				3F35FA2E17B7F0060029584F /* NIAgentClient.m */,
+				3F35FA2F17B7F0060029584F /* NIClient.m */,
+				3F35FA3017B7F0060029584F /* NIControllerNotificationServer.m */,
+				3F35FA3117B7F0060029584F /* NIControllerRequestClient.m */,
+				3F35FA3217B7F0060029584F /* NIControllerRequestServer.m */,
+				3F35FA3317B7F0060029584F /* NIImageConversions.m */,
+				3F35FA3417B7F0060029584F /* NIMainHandlerClient.m */,
+				3F35FA3517B7F0060029584F /* NIMainHandlerServer.m */,
+				3F35FA3617B7F0060029584F /* NIMessage.m */,
+				3F35FA3717B7F0060029584F /* NIMessageBases.m */,
+				3F35FA3817B7F0060029584F /* NIProtocolMessages.m */,
+				3F35FA3917B7F0060029584F /* NIResponse.m */,
+				3F35FA3A17B7F0060029584F /* NIServer.m */,
+			);
+			name = "NI Protocol";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +248,20 @@
 			files = (
 				3F35FA0C17B7EEEF0029584F /* main.m in Sources */,
 				3F35FA1317B7EEEF0029584F /* SMAppDelegate.m in Sources */,
+				3F35FA3B17B7F0060029584F /* NIAgent.m in Sources */,
+				3F35FA3C17B7F0060029584F /* NIAgentClient.m in Sources */,
+				3F35FA3D17B7F0060029584F /* NIClient.m in Sources */,
+				3F35FA3E17B7F0060029584F /* NIControllerNotificationServer.m in Sources */,
+				3F35FA3F17B7F0060029584F /* NIControllerRequestClient.m in Sources */,
+				3F35FA4017B7F0060029584F /* NIControllerRequestServer.m in Sources */,
+				3F35FA4117B7F0060029584F /* NIImageConversions.m in Sources */,
+				3F35FA4217B7F0060029584F /* NIMainHandlerClient.m in Sources */,
+				3F35FA4317B7F0060029584F /* NIMainHandlerServer.m in Sources */,
+				3F35FA4417B7F0060029584F /* NIMessage.m in Sources */,
+				3F35FA4517B7F0060029584F /* NIMessageBases.m in Sources */,
+				3F35FA4617B7F0060029584F /* NIProtocolMessages.m in Sources */,
+				3F35FA4717B7F0060029584F /* NIResponse.m in Sources */,
+				3F35FA4817B7F0060029584F /* NIServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
