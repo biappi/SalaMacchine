@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIProtocolMessages.h"
+#import "NIMaschineLayouts.h"
 
 @protocol NIControllerNotificationsObserver <NSObject>
 - (void)gotFocus;
+- (void)buttonChanged:(NIMaschineButtonsLayout)button pressed:(BOOL)pressed;
 @end
 
 @interface NIAgentClient : NSObject
@@ -19,6 +22,7 @@
 - (void)connect;
 
 - (void)allLedsOff;
+- (void)setLedState:(NILedState *)ledState;
 - (void)blankLcds;
 
 @end

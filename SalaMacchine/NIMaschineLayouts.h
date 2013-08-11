@@ -71,7 +71,7 @@ typedef enum {
     NIMaschineWheel_Soft6,
     NIMaschineWheel_Soft7,
     NIMaschineWheel_Soft8,
-} NIMaschineWheelsLayout
+} NIMaschineWheelsLayout;
 
 typedef enum {
     NIMaschineLed_Pad4,

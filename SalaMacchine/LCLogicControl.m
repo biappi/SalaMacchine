@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <CoreMIDI/CoreMIDI.h>
 #import "LCLogicControl.h"
 
 static void InputPortCallback (const MIDIPacketList *pktlist, void *refCon, void *connRefCon);
@@ -150,10 +151,9 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 
 /* - */
 
-- (void)buttonPress:(uint8_t)buttonId;
+- (void)setButton:(LCLogicControlLayout)button pressed:(BOOL)pressed;
 {
-	[self sendNoteOn:0 note:buttonId velocity:127];
-	[self sendNoteOn:0 note:buttonId velocity:0];
+    [self sendNoteOn:0 note:button velocity:pressed ? 127 : 0];
 }
 
 /* - */
@@ -167,7 +167,11 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 // 0x9x
 - (void)receivedNoteOnChannel:(uint8_t)channel note:(uint8_t)note velocity:(uint8_t)velocity;
 {
-	NSLog(@"Mackie Set Led %02x Status %02x", note, velocity);
+    NILog(@"Mackie Set Led %02x Status %02x", note, velocity);
+    dispatch_async(dispatch_get_main_queue(),
+                   ^{
+                       [self.controlObserver setLed:note on:!!velocity];
+                   });
 }
 
 // 0xBx

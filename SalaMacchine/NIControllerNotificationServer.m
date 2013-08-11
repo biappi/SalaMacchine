@@ -23,4 +23,12 @@
     return nil;
 }
 
+- (NSData *)handleNIButtonsChangedMessage:(NIButtonsChangedMessage *)msg;
+{
+    for (NIButtonsChangedEvent * ev in msg.events)
+        [self.observer buttonChanged:ev.buttonId pressed:ev.on];
+    
+    return nil;
+}
+
 @end

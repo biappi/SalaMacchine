@@ -53,8 +53,13 @@
 
 - (void)allLedsOff;
 {
+    [self setLedState:[NILedState new]];
+}
+
+- (void)setLedState:(NILedState *)ledState;
+{
     NISetLedStateMessage * setLed = [NISetLedStateMessage new];
-    setLed.state = [NILedState new];
+    setLed.state = ledState;
     [self.requestClient sendMessage:setLed];
 }
 

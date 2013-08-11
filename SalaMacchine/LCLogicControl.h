@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <CoreMIDI/CoreMIDI.h>
+#import "LCLogicControlLayout.h"
 
 @protocol LCLogicControlObserver <NSObject>
 - (void)tcrCodeStringChanged:(NSString *)tcrCode;
 - (void)topStripStringChanged:(NSString *)topStrip;
 - (void)bottomStripStringChanged:(NSString *)bottomStrip;
+- (void)setLed:(LCLogicControlLayout)led on:(BOOL)on;
 @end
 
 @interface LCLogicControl : NSObject
@@ -20,6 +21,6 @@
 @property(nonatomic, weak) id<LCLogicControlObserver> controlObserver;
 
 - (id)initWithName:(NSString *)name;
-- (void)buttonPress:(uint8_t)buttonId;
+- (void)setButton:(LCLogicControlLayout)button pressed:(BOOL)pressed;
 
 @end
