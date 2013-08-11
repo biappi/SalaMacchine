@@ -120,7 +120,7 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 		0xF7                               // EOX
 	};
 	
-	NSLog(@" -- SENDING MAKIE HOST CONNECTION QUERY MODEL");
+	NILog(@" -- SENDING MAKIE HOST CONNECTION QUERY MODEL");
 	
 	[self prefixBufferWithSysex:reply];
 	[self sendMidiBytes:reply count:sizeof(reply)];
@@ -136,7 +136,7 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 		0xF7                               // EOX
 	};
 	
-	NSLog(@" -- SENDING MAKIE CONNECTION CONFIRMATION");
+	NILog(@" -- SENDING MAKIE CONNECTION CONFIRMATION");
 	
 	[self prefixBufferWithSysex:reply];
 	[self sendMidiBytes:reply count:sizeof(reply)];	
@@ -152,7 +152,7 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 		0xF7,                         // EOX
 	};
 	
-	NSLog(@" -- SENDING MAKIE VERSION REPLY");
+	NILog(@" -- SENDING MAKIE VERSION REPLY");
 	
 	[self prefixBufferWithSysex:reply];
 	[self sendMidiBytes:reply count:sizeof(reply)];	
@@ -229,12 +229,12 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 	switch (d[5])
 	{
 		case 0x00:
-			NSLog(@"Mackie Device Query Model");
+			NILog(@"Mackie Device Query Model");
 			[self sendHostConnectionQuery];
 			break;
 		
 		case 0x02:
-			NSLog(@"Mackie Host Connection Reply %c%c%c%c%c%c%c %02x %02x %02x %02x", d[6], d[7], d[8], d[9], d[10], d[11], d[12], d[13], d[14], d[15], d[16]);
+			NILog(@"Mackie Host Connection Reply %c%c%c%c%c%c%c %02x %02x %02x %02x", d[6], d[7], d[8], d[9], d[10], d[11], d[12], d[13], d[14], d[15], d[16]);
 			[self sendHostConnectionConfirmation];
 			break;
 		
@@ -272,7 +272,7 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 		}
 			
 		case 0x13:
-			NSLog(@"Mackie Device Version Request");
+			NILog(@"Mackie Device Version Request");
 			[self sendVersionReply];
 			break;
 		
