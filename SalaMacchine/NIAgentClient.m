@@ -31,8 +31,8 @@
                                                                    clientRole:'prmy'
                                                                    clientName:@"Testing 123"];
     
-    NSLog(@" - %@", r);
-    NSLog(@" ");
+    NILog(@" - %@", r);
+    NILog(@" ");
     
     if (r.success == NO)
         return;

@@ -68,14 +68,12 @@ static CFDataRef ServerPortCallback(CFMessagePortRef local,
         
         if ([self respondsToSelector:selector] == NO)
         {
-            NSLog(@" --- MESSAGECLASS NOT HANDLED: IMPLEMENT -[%@ %@]", [self className], selectorString);
             NSLog(@" --- LOST MESSAGE - %@", message);
-            NSLog(@" ");
-            
+            NSLog(@"     IMPLEMENT -[%@ %@]", [self className], selectorString);
             return nil;
         }
         
-        NSLog(@"%@ <- %@", name, message);
+        NILog(@"%@ <- %@", name, message);
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -84,8 +82,8 @@ static CFDataRef ServerPortCallback(CFMessagePortRef local,
 
 #pragma clang diagnostic pop
         
-        NSLog(@"%@ -> %@", name, response);
-        NSLog(@" ");
+        NILog(@"%@ -> %@", name, response);
+        NILog(@" ");
         
         return response;
     }

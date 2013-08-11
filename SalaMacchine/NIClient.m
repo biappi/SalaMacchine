@@ -43,9 +43,9 @@
                              kCFRunLoopDefaultMode,
                              &replyData);
     
-    NSLog(@"%@ -> %@", name, message);
-    NSLog(@"%@ <- %@", name, replyData);
-    NSLog(@" ");
+    NILog(@"%@ -> %@", name, message);
+    NILog(@"%@ <- %@", name, replyData);
+    NILog(@" ");
     
     return CFBridgingRelease(replyData);
 }

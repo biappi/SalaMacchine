@@ -5,3 +5,9 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#ifdef NI_PROTOCOL_LOGGING
+#   define NILog( ... ) NILog ( __VA_ARGS__ )
+#else
+#   define NILog( ... )
+#endif

@@ -22,7 +22,7 @@
     if (message.controllerId != 0x00000808)
     {
         uint32_t fail = 'fail';
-        NSLog(@" is not a maschine, failing");
+        NILog(@" is not a maschine, failing");
         return [NSData dataWithBytes:&fail length:sizeof(fail)];
     }
     
