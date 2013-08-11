@@ -24,5 +24,6 @@
 - (void)allLedsOff;
 - (void)setLedState:(NILedState *)ledState;
 - (void)blankLcds;
+- (void)sendDrawMessage:(NIDisplayDrawMessage *)msg;
 
 @end

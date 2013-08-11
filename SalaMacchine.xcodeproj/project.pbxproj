@@ -30,6 +30,7 @@
 		3F35FA4B17B803690029584F /* SMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA4A17B803680029584F /* SMController.m */; };
 		3F35FA4F17B80D530029584F /* LCLogicControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA4E17B80D530029584F /* LCLogicControl.m */; };
 		3F35FA5117B812DF0029584F /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35FA5017B812DF0029584F /* CoreMIDI.framework */; };
+		3F35FA5817B83D330029584F /* SMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA5717B83D320029584F /* SMImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		3F35FA5017B812DF0029584F /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		3F35FA5417B81E820029584F /* LCLogicControlLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLogicControlLayout.h; sourceTree = "<group>"; };
 		3F35FA5517B828EA0029584F /* NIMaschineLayouts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIMaschineLayouts.h; sourceTree = "<group>"; };
+		3F35FA5617B83D320029584F /* SMImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImage.h; sourceTree = "<group>"; };
+		3F35FA5717B83D320029584F /* SMImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				3F35FA4C17B80D420029584F /* Logic Control */,
 				3F35FA4917B803680029584F /* SMController.h */,
 				3F35FA4A17B803680029584F /* SMController.m */,
+				3F35FA5617B83D320029584F /* SMImage.h */,
+				3F35FA5717B83D320029584F /* SMImage.m */,
 				3F35FA1117B7EEEF0029584F /* SMAppDelegate.h */,
 				3F35FA1217B7EEEF0029584F /* SMAppDelegate.m */,
 			);
@@ -290,6 +295,7 @@
 				3F35FA4817B7F0060029584F /* NIServer.m in Sources */,
 				3F35FA4B17B803690029584F /* SMController.m in Sources */,
 				3F35FA4F17B80D530029584F /* LCLogicControl.m in Sources */,
+				3F35FA5817B83D330029584F /* SMImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

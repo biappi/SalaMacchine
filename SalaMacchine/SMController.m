@@ -11,6 +11,7 @@
 #import "LCLogicControl.h"
 #import "NIMaschineLayouts.h"
 #import "LCLogicControlLayout.h"
+#import "SMImage.h"
 
 #define translate( from , to ) case from : x = to ; break;
 
@@ -22,6 +23,8 @@
     NIAgentClient  * mashineInterface;
     NILedState     * ledState;
     LCLogicControl * logicInterface;
+    SMImage        * leftDisplay;
+    SMImage        * rightDisplay;
 }
 
 - (id)init;
@@ -38,6 +41,12 @@
     
     ledState = [NILedState new];
     
+    leftDisplay = [SMImage new];
+    leftDisplay.asDrawMessage.displayNumber = 0;
+    
+    rightDisplay = [SMImage new];
+    rightDisplay.asDrawMessage.displayNumber = 1;
+    
     return self;
 }
 
@@ -45,8 +54,9 @@
 
 - (void)gotFocus;
 {
-    [mashineInterface allLedsOff];
-    [mashineInterface blankLcds];
+    [mashineInterface setLedState:ledState];
+    [mashineInterface sendDrawMessage:leftDisplay.asDrawMessage];
+    [mashineInterface sendDrawMessage:rightDisplay.asDrawMessage];
 }
 
 - (void)buttonChanged:(NIMaschineButtonsLayout)button pressed:(BOOL)pressed;

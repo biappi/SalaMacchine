@@ -76,4 +76,9 @@
     [self.requestClient sendMessage:blank];
 }
 
+- (void)sendDrawMessage:(NIDisplayDrawMessage *)msg;
+{
+    [self.requestClient sendMessage:msg];
+}
+
 @end
