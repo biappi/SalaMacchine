@@ -17,6 +17,5 @@
 @property (readonly) NIControllerNotificationServer * notificationServer;
 
 - (void)connect;
-- (void)sendTestImage;
 
 @end

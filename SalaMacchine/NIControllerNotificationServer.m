@@ -19,7 +19,7 @@
 
 - (NSData *)handleNISetFocusMessage:(NISetFocusMessage *)setFocus;
 {
-    [self.agentClient sendTestImage];
+    [self.observer gotFocus];
     return nil;
 }
 

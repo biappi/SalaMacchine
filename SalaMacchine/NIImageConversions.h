@@ -8,5 +8,8 @@
 
 #import "NIProtocolMessages.h"
 
+static const int NIMaschineDisplaysWidth  = 255;
+static const int NIMaschineDisplaysHeight =  64;
+
 NIDisplayDrawMessage * TestImageDataMessage();
 NSData * NI24BPPToST7529Data(uint16_t width, uint16_t height, const uint8_t * bitmap);

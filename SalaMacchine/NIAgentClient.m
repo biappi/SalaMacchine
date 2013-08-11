@@ -9,11 +9,10 @@
 #import "NIAgentClient.h"
 #import "NIImageConversions.h"
 
+@interface NIAgentClient () <NIControllerNotificationsObserver>
+@end
+
 @implementation NIAgentClient
-{
-    NILedState * ledState;
-    int          curLed;
-}
 
 - (id)init;
 {
@@ -21,7 +20,6 @@
         return nil;
     
     _mainHandler = [[NIMainHandlerClient alloc] initWithName:@"NIHWMainHandler"];
-    ledState = [NILedState new];
     
     return self;
 }
@@ -41,34 +39,36 @@
     
     _requestClient      = [[NIControllerRequestClient alloc]      initWithName:r.inPortName];
     _notificationServer = [[NIControllerNotificationServer alloc] initWithName:r.outPortName];
-    _notificationServer.agentClient = self;
+    _notificationServer.observer = self;
     
     [_notificationServer scheduleInRunLoop:[NSRunLoop currentRunLoop]];
     [_requestClient setNotificationPortName:r.outPortName];
 }
 
-- (void)sendTestImage;
+- (void)allLedsOff;
 {
-    NIDisplayDrawMessage * m = TestImageDataMessage();
-    [self.requestClient sendMessage:m];
-    m.displayNumber = 1;
-    [self.requestClient sendMessage:m];
-    [self ledtest];
+    NISetLedStateMessage * setLed = [NISetLedStateMessage new];
+    setLed.state = [NILedState new];
+    [self.requestClient sendMessage:setLed];
 }
 
-- (void)ledtest;
+- (void)blankLcds;
 {
-    [ledState setLed:curLed - 1 intensity:0x00];
-    [ledState setLed:curLed     intensity:0x3f];
+    NIDisplayDrawMessage * blank = [NIDisplayDrawMessage new];
+    blank.sizeWidth  = NIMaschineDisplaysWidth;
+    blank.sizeHeight = NIMaschineDisplaysHeight;
+    blank.st7529EncodedImage = [NSMutableData dataWithLength:NIMaschineDisplaysWidth * NIMaschineDisplaysHeight / 3 * 2];
     
-    curLed = (curLed + 1) % 57;
+    [self.requestClient sendMessage:blank];
     
-    NISetLedStateMessage * m = [NISetLedStateMessage new];
-    m.state = ledState;
-    
-    [self.requestClient sendMessage:m];
-    
-    [self performSelector:@selector(ledtest) withObject:nil afterDelay:0.5];
+    blank.displayNumber = 1;
+    [self.requestClient sendMessage:blank];
+}
+
+- (void)gotFocus;
+{
+    [self allLedsOff];
+    [self blankLcds];
 }
 
 @end
