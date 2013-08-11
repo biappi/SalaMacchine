@@ -80,6 +80,7 @@
 		3F35FA4E17B80D530029584F /* LCLogicControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLogicControl.m; sourceTree = "<group>"; };
 		3F35FA5017B812DF0029584F /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		3F35FA5417B81E820029584F /* LCLogicControlLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLogicControlLayout.h; sourceTree = "<group>"; };
+		3F35FA5517B828EA0029584F /* NIMaschineLayouts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIMaschineLayouts.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +192,7 @@
 				3F35FA3817B7F0060029584F /* NIProtocolMessages.m */,
 				3F35FA3917B7F0060029584F /* NIResponse.m */,
 				3F35FA3A17B7F0060029584F /* NIServer.m */,
+				3F35FA5517B828EA0029584F /* NIMaschineLayouts.h */,
 			);
 			name = "NI Protocol";
 			sourceTree = "<group>";
