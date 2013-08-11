@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SMController : NSObject
-
+@property (nonatomic, strong) NSString * tcrStirng;
+@property (nonatomic, strong) NSString * stripTopString;
+@property (nonatomic, strong) NSString * stripBottomString;
 @end

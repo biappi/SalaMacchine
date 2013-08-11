@@ -11,16 +11,6 @@
 static void InputPortCallback (const MIDIPacketList *pktlist, void *refCon, void *connRefCon);
 static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 
-@interface LCLogicControl()
-
-@property(nonatomic, retain)   NSString * tcrCode;
-@property(nonatomic, retain)   NSString * stripTop;
-@property(nonatomic, retain)   NSString * stripBottom;
-
-@property(nonatomic, readonly) uint8_t  * sysexPrefix;
-
-@end
-
 @implementation LCLogicControl
 {
     NSString      * name;
@@ -205,7 +195,7 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
             NSString * tcr = [NSString stringWithCString:tcrCodeCString encoding:NSUTF8StringEncoding];
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               self.tcrCode = tcr;
+                               [self.controlObserver tcrCodeStringChanged:tcr];
                            });
 		}
 	}
@@ -264,10 +254,9 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
             
 			dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               self.stripTop    = top;
-                               self.stripBottom = bottom;
+                               [self.controlObserver topStripStringChanged:top];
+                               [self.controlObserver bottomStripStringChanged:bottom];
                            });
-			
 			break;
 		}
 			

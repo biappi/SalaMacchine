@@ -10,7 +10,7 @@
 #import "NIAgentClient.h"
 #import "LCLogicControl.h"
 
-@interface SMController () <NIControllerNotificationsObserver>
+@interface SMController () <NIControllerNotificationsObserver, LCLogicControlObserver>
 @end
 
 @implementation SMController
@@ -29,6 +29,7 @@
     [mashineInterface connect];
     
     logicInterface = [LCLogicControl new];
+    logicInterface.controlObserver = self;
     
     return self;
 }
@@ -37,6 +38,21 @@
 {
     [mashineInterface allLedsOff];
     [mashineInterface blankLcds];
+}
+
+- (void)tcrCodeStringChanged:(NSString *)tcrCode;
+{
+    self.tcrStirng = tcrCode;
+}
+
+- (void)topStripStringChanged:(NSString *)topStrip;
+{
+    self.stripTopString = topStrip;
+}
+
+- (void)bottomStripStringChanged:(NSString *)bottomStrip;
+{
+    self.stripBottomString = bottomStrip;
 }
 
 @end

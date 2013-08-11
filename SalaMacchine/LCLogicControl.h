@@ -9,14 +9,17 @@
 #import <Cocoa/Cocoa.h>
 #import <CoreMIDI/CoreMIDI.h>
 
+@protocol LCLogicControlObserver <NSObject>
+- (void)tcrCodeStringChanged:(NSString *)tcrCode;
+- (void)topStripStringChanged:(NSString *)topStrip;
+- (void)bottomStripStringChanged:(NSString *)bottomStrip;
+@end
+
 @interface LCLogicControl : NSObject
 
-@property(nonatomic, retain, readonly) NSString * tcrCode;
-@property(nonatomic, retain, readonly) NSString * stripTop;
-@property(nonatomic, retain, readonly) NSString * stripBottom;
+@property(nonatomic, weak) id<LCLogicControlObserver> controlObserver;
 
 - (id)initWithName:(NSString *)name;
-
 - (void)buttonPress:(uint8_t)buttonId;
 
 @end

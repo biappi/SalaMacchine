@@ -10,13 +10,10 @@
 #import "SMController.h"
 
 @implementation SMAppDelegate
-{
-    SMController * controller;
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification;
 {
-    controller = [SMController new];
+    ;
 }
 
 @end
