@@ -12,12 +12,32 @@
 static const unsigned int ImageSize_8bpp     = NIMaschineDisplaysWidth * NIMaschineDisplaysHeight;
 static const unsigned int ImageSize_Maschine = ImageSize_8bpp / 3 * 2;
 
+NSFont * LCDFont()
+{
+    static NSFont * font;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        NSString            * path   = [[NSBundle mainBundle] pathForResource:@"font" ofType:@"ttf"];
+        NSData              * data   = [[NSData alloc] initWithContentsOfFile:path];
+        CGDataProviderRef     prov   = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+        CGFontRef             cgFont = CGFontCreateWithDataProvider(prov);
+        
+        font = (__bridge NSFont *)(CTFontCreateWithGraphicsFont(cgFont, 8, NULL, NULL));
+        
+        CGFontRelease(cgFont);
+    });
+    
+    return font;
+}
+
 @implementation SMImage
 {
     CGContextRef   context;
     uint8_t        imageData[ImageSize_8bpp];
     uint8_t        maschineData[ImageSize_Maschine];
     
+    NSGraphicsContext    * gc;
     NSData               * bitmapData;
     NIDisplayDrawMessage * message;
 }
@@ -42,17 +62,18 @@ static const unsigned int ImageSize_Maschine = ImageSize_8bpp / 3 * 2;
     CGContextSetAllowsFontSubpixelPositioning(context, false);
     CGContextSetAllowsFontSubpixelQuantization(context, false);
 
+    gc = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
+    
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:gc];
+    
     CGContextSetGrayFillColor(context, 1, 1);
     CGContextSetGrayStrokeColor(context, 0, 1);
     CGContextFillRect(context, CGRectMake(0, 0, NIMaschineDisplaysWidth, NIMaschineDisplaysHeight));
     
-    CGContextSetGrayFillColor(context, 0, 1);
-    CGContextSelectFont(context,
-                        "Monaco",
-                        9,
-                        kCGEncodingMacRoman);
-    char * t = "Welcome to Sala Macchine";
-    CGContextShowTextAtPoint(context, 0, 0, t, strlen(t));
+    [@"Welcome to Sala Macchine" drawAtPoint:NSMakePoint(0, 0) withAttributes:@{NSFontAttributeName: LCDFont()}];
+    
+    [NSGraphicsContext restoreGraphicsState];
     
     [self convertToMaschine];
     

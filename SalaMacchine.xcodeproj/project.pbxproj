@@ -31,6 +31,7 @@
 		3F35FA4F17B80D530029584F /* LCLogicControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA4E17B80D530029584F /* LCLogicControl.m */; };
 		3F35FA5117B812DF0029584F /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F35FA5017B812DF0029584F /* CoreMIDI.framework */; };
 		3F35FA5817B83D330029584F /* SMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F35FA5717B83D320029584F /* SMImage.m */; };
+		3F35FA5C17B8561A0029584F /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F35FA5B17B856130029584F /* font.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		3F35FA5517B828EA0029584F /* NIMaschineLayouts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NIMaschineLayouts.h; sourceTree = "<group>"; };
 		3F35FA5617B83D320029584F /* SMImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMImage.h; sourceTree = "<group>"; };
 		3F35FA5717B83D320029584F /* SMImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMImage.m; sourceTree = "<group>"; };
+		3F35FA5B17B856130029584F /* font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.ttf; path = SalaMacchine/font.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		3F35FA1C17B7EEF90029584F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F35FA5B17B856130029584F /* font.ttf */,
 				3F35FA1417B7EEEF0029584F /* MainMenu.xib */,
 				3F35FA0717B7EEEF0029584F /* SalaMacchine-Info.plist */,
 				3F35FA0817B7EEEF0029584F /* InfoPlist.strings */,
@@ -267,6 +270,7 @@
 				3F35FA0A17B7EEEF0029584F /* InfoPlist.strings in Resources */,
 				3F35FA1017B7EEEF0029584F /* Credits.rtf in Resources */,
 				3F35FA1617B7EEEF0029584F /* MainMenu.xib in Resources */,
+				3F35FA5C17B8561A0029584F /* font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
