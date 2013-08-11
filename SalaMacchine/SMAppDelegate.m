@@ -7,17 +7,16 @@
 //
 
 #import "SMAppDelegate.h"
-#import "NIAgentClient.h"
+#import "SMController.h"
 
 @implementation SMAppDelegate
 {
-    NIAgentClient * mashineInterface;
+    SMController * controller;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification;
 {
-    mashineInterface = [NIAgentClient new];
-    [mashineInterface connect];
+    controller = [SMController new];
 }
 
 @end

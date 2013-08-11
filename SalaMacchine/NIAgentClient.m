@@ -7,9 +7,15 @@
 //
 
 #import "NIAgentClient.h"
+#import "NIMainHandlerClient.h"
+#import "NIControllerRequestClient.h"
+#import "NIControllerNotificationServer.h"
 #import "NIImageConversions.h"
 
-@interface NIAgentClient () <NIControllerNotificationsObserver>
+@interface NIAgentClient ()
+@property (readonly) NIMainHandlerClient            * mainHandler;
+@property (readonly) NIControllerRequestClient      * requestClient;
+@property (readonly) NIControllerNotificationServer * notificationServer;
 @end
 
 @implementation NIAgentClient
@@ -39,7 +45,7 @@
     
     _requestClient      = [[NIControllerRequestClient alloc]      initWithName:r.inPortName];
     _notificationServer = [[NIControllerNotificationServer alloc] initWithName:r.outPortName];
-    _notificationServer.observer = self;
+    _notificationServer.observer = self.notificationObserver;
     
     [_notificationServer scheduleInRunLoop:[NSRunLoop currentRunLoop]];
     [_requestClient setNotificationPortName:r.outPortName];
@@ -63,12 +69,6 @@
     
     blank.displayNumber = 1;
     [self.requestClient sendMessage:blank];
-}
-
-- (void)gotFocus;
-{
-    [self allLedsOff];
-    [self blankLcds];
 }
 
 @end

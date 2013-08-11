@@ -7,10 +7,7 @@
 //
 
 #import "NIServer.h"
-
-@protocol NIControllerNotificationsObserver <NSObject>
-- (void)gotFocus;
-@end
+#import "NIAgentClient.h"
 
 @interface NIControllerNotificationServer : NIServer
 @property __weak id<NIControllerNotificationsObserver> observer;

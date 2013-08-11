@@ -6,16 +6,19 @@
 //  Copyright (c) 2012 Antonio "Willy" Malara. All rights reserved.
 //
 
-#import "NIMainHandlerClient.h"
-#import "NIControllerRequestClient.h"
-#import "NIControllerNotificationServer.h"
+#import <Foundation/Foundation.h>
+
+@protocol NIControllerNotificationsObserver <NSObject>
+- (void)gotFocus;
+@end
 
 @interface NIAgentClient : NSObject
 
-@property (readonly) NIMainHandlerClient            * mainHandler;
-@property (readonly) NIControllerRequestClient      * requestClient;
-@property (readonly) NIControllerNotificationServer * notificationServer;
+@property(nonatomic, weak) id<NIControllerNotificationsObserver> notificationObserver;
 
 - (void)connect;
+
+- (void)allLedsOff;
+- (void)blankLcds;
 
 @end
