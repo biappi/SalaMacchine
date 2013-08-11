@@ -43,6 +43,17 @@
 @property NSData   * st7529EncodedImage;
 @end
 
+@interface NIButtonsChangedEvent : NSObject
+@property uint32_t buttonId;
+@property uint32_t on;
+@end
+
+@interface NIButtonsChangedMessage : NIMessage
+@property uint32_t   boh1;
+@property uint32_t   boh2;
+@property NSArray  * events;
+@end
+
 @interface NIWheelsChangedEvent : NSObject
 @property uint32_t wheelId;
 @property float delta;
