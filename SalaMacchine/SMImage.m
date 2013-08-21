@@ -127,9 +127,20 @@ NSFont * LCDFont()
     }
 }
 
+- (CGContextRef)asCGContext;
+{
+    return context;
+}
+
+- (NSGraphicsContext *)asNSGraphicsContext;
+{
+    return gc;
+}
+
 - (NIDisplayDrawMessage *)asDrawMessage;
 {
     return message;
 }
+
 
 @end

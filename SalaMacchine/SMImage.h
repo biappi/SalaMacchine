@@ -9,5 +9,7 @@
 #import "NIProtocolMessages.h"
 
 @interface SMImage : NSObject
-- (NIDisplayDrawMessage *)asDrawMessage;
+@property(nonatomic, readonly) CGContextRef           asCGContext;
+@property(nonatomic, readonly) NSGraphicsContext    * asNSGraphicsContext;
+@property(nonatomic, readonly) NIDisplayDrawMessage * asDrawMessage;
 @end
