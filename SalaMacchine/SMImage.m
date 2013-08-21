@@ -34,6 +34,7 @@ NSFont * LCDFont()
 @implementation SMImage
 {
     CGContextRef   context;
+    CGImageRef     image;
     uint8_t        imageData[ImageSize_8bpp];
     uint8_t        maschineData[ImageSize_Maschine];
     
@@ -85,6 +86,8 @@ NSFont * LCDFont()
     
     [self convertToMaschine];
     
+    image = CGBitmapContextCreateImage(context);
+    
     bitmapData = [NSData dataWithBytesNoCopy:maschineData
                                       length:ImageSize_Maschine
                                 freeWhenDone:NO];
@@ -99,6 +102,7 @@ NSFont * LCDFont()
 
 - (void)dealloc;
 {
+    CGImageRelease(image);
     CGContextRelease(context);
 }
 
@@ -132,9 +136,9 @@ NSFont * LCDFont()
     return context;
 }
 
-- (NSGraphicsContext *)asNSGraphicsContext;
+- (NSImage *)asNSImage;
 {
-    return gc;
+    return [[NSImage alloc] initWithCGImage:image size:NSMakeSize(NIMaschineDisplaysWidth, NIMaschineDisplaysHeight)];
 }
 
 - (NIDisplayDrawMessage *)asDrawMessage;

@@ -47,6 +47,8 @@
     rightDisplay = [SMImage new];
     rightDisplay.asDrawMessage.displayNumber = 1;
     
+    [self blitDisplays];
+    
     return self;
 }
 
@@ -106,6 +108,15 @@
     
     [ledState setLed:x intensity:on ? 0xff : 0];
     [mashineInterface setLedState:ledState];    
+}
+
+- (void)blitDisplays;
+{
+    [mashineInterface sendDrawMessage:leftDisplay.asDrawMessage];
+    [mashineInterface sendDrawMessage:rightDisplay.asDrawMessage];
+    
+    self.leftDisplayImage  = leftDisplay.asNSImage;
+    self.rightDisplayImage = rightDisplay.asNSImage;
 }
 
 @end
