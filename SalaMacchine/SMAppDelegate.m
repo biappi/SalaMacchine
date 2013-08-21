@@ -9,6 +9,10 @@
 #import "SMAppDelegate.h"
 #import "SMController.h"
 
+@interface SMAppDelegate ()
+@property (weak) IBOutlet NSImageView *leftDisplay;
+@property (weak) IBOutlet NSImageView *rightDisplay;
+@end
 @implementation SMAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification;
