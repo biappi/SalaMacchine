@@ -74,13 +74,7 @@ NSFont * LCDFont()
 
     NSFont * f = LCDFont();
     
-    /*
-    [@"0         1         2         3         4         5         6" drawAtPoint:NSMakePoint(0, 8) withAttributes:@{NSFontAttributeName: f}];
-    [@"0123456789012345678901234567890123456789012345678901234567890" drawAtPoint:NSMakePoint(0, 0) withAttributes:@{NSFontAttributeName: f}];
-    */
-    
-    [@"ZXCVBNMASDFGHJKLQWERTYUIOPZXCVBNMASDFGHJKLQWERTYUIOP" drawAtPoint:NSMakePoint(0, 8) withAttributes:@{NSFontAttributeName: f}];
-    [@"QWERTYUIOPASDFGHJKLZXCVBNMQWERTYUIOPASDFGHJKLZXCVBNM" drawAtPoint:NSMakePoint(0, 0) withAttributes:@{NSFontAttributeName: f}];
+    [@"Welcome to Sala Macchine" drawAtPoint:NSMakePoint(0, 0) withAttributes:@{NSFontAttributeName: f}];
     
     [NSGraphicsContext restoreGraphicsState];
     
