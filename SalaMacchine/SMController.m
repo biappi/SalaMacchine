@@ -10,6 +10,7 @@
 #import "NIAgentClient.h"
 #import "LCLogicControl.h"
 #import "NIMaschineLayouts.h"
+#import "NIImageConversions.h"
 #import "LCLogicControlLayout.h"
 #import "SMImage.h"
 
@@ -49,6 +50,8 @@
     
     [self blitDisplays];
     
+    [self performSelector:@selector(test) withObject:nil afterDelay:3];
+    
     return self;
 }
 
@@ -81,6 +84,7 @@
 - (void)tcrCodeStringChanged:(NSString *)tcrCode;
 {
     self.tcrStirng = tcrCode;
+    [self drawTCRInMashine];
 }
 
 - (void)topStripStringChanged:(NSString *)topStrip;
@@ -114,9 +118,48 @@
 {
     [mashineInterface sendDrawMessage:leftDisplay.asDrawMessage];
     [mashineInterface sendDrawMessage:rightDisplay.asDrawMessage];
+
+    self.leftDisplayImage  = nil;
+    self.rightDisplayImage = nil;
     
     self.leftDisplayImage  = leftDisplay.asNSImage;
     self.rightDisplayImage = rightDisplay.asNSImage;
+}
+
+- (void)drawTCRInMashine;
+{
+    const NSRect tcrLabelSize = {
+        .origin.x    = 0,
+        .origin.y    = 0,
+        .size.width  = NIMaschineDisplaysWidth,
+        .size.height = NIMaschineDisplaysHeight
+    };
+    
+    CGContextSetGrayFillColor(rightDisplay.asCGContext, 1, 1);
+    CGContextSetGrayStrokeColor(rightDisplay.asCGContext, 0, 1);
+    CGContextFillRect(rightDisplay.asCGContext, CGRectMake(0, 0, NIMaschineDisplaysWidth, NIMaschineDisplaysHeight));
+
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:rightDisplay.asNSGraphicsContext];
+    
+    [[NSColor blackColor] setStroke];
+    [[NSColor blackColor] setFill];
+    
+    [self.tcrStirng drawInRect:tcrLabelSize withAttributes:@{NSFontAttributeName: LCDFont()}];
+    
+    [NSGraphicsContext restoreGraphicsState];
+    
+    [self blitDisplays];
+}
+
+- (void)test;
+{
+    static int test = 0;
+    
+    self.tcrStirng = [NSString stringWithFormat:@"%d", test++];
+    [self drawTCRInMashine];
+    
+    [self performSelector:@selector(test) withObject:nil afterDelay:3];
 }
 
 @end

@@ -130,6 +130,11 @@ NSFont * LCDFont()
     return context;
 }
 
+- (NSGraphicsContext *)asNSGraphicsContext;
+{
+    return gc;
+}
+
 - (NSImage *)asNSImage;
 {
     return [[NSImage alloc] initWithCGImage:image size:NSMakeSize(NIMaschineDisplaysWidth, NIMaschineDisplaysHeight)];

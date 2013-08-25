@@ -8,8 +8,11 @@
 
 #import "NIProtocolMessages.h"
 
+NSFont * LCDFont();
+
 @interface SMImage : NSObject
 @property(nonatomic, readonly) CGContextRef           asCGContext;
+@property(nonatomic, readonly) NSGraphicsContext    * asNSGraphicsContext;
 @property(nonatomic, readonly) NSImage              * asNSImage;
 @property(nonatomic, readonly) NIDisplayDrawMessage * asDrawMessage;
 @end
