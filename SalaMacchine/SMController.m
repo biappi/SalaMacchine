@@ -50,8 +50,6 @@
     
     [self blitDisplays];
     
-    [self performSelector:@selector(test) withObject:nil afterDelay:3];
-    
     return self;
 }
 
@@ -90,11 +88,13 @@
 - (void)topStripStringChanged:(NSString *)topStrip;
 {
     self.stripTopString = topStrip;
+    [self drawTopStripInMashine];
 }
 
 - (void)bottomStripStringChanged:(NSString *)bottomStrip;
 {
     self.stripBottomString = bottomStrip;
+    [self drawBottomStripInMashine];
 }
 
 - (void)setLed:(LCLogicControlLayout)logicLed on:(BOOL)on;
@@ -129,37 +129,129 @@
 - (void)drawTCRInMashine;
 {
     const NSRect tcrLabelSize = {
-        .origin.x    = 0,
-        .origin.y    = 0,
-        .size.width  = NIMaschineDisplaysWidth,
-        .size.height = NIMaschineDisplaysHeight
+        .origin.x    = 20,
+        .origin.y    = 20,
+        .size.width  = NIMaschineDisplaysWidth - 2 * 20,
+        .size.height = NIMaschineDisplaysHeight  - 2 * 20
     };
     
-    CGContextSetGrayFillColor(rightDisplay.asCGContext, 1, 1);
-    CGContextSetGrayStrokeColor(rightDisplay.asCGContext, 0, 1);
-    CGContextFillRect(rightDisplay.asCGContext, CGRectMake(0, 0, NIMaschineDisplaysWidth, NIMaschineDisplaysHeight));
-
     [NSGraphicsContext saveGraphicsState];
     [NSGraphicsContext setCurrentContext:rightDisplay.asNSGraphicsContext];
     
     [[NSColor blackColor] setStroke];
     [[NSColor blackColor] setFill];
+  
+    [[NSBezierPath bezierPathWithRect:tcrLabelSize] fill];
     
-    [self.tcrStirng drawInRect:tcrLabelSize withAttributes:@{NSFontAttributeName: LCDFont()}];
+    [self.tcrStirng drawInRect:tcrLabelSize
+                withAttributes:@{
+                       NSFontAttributeName: LCDFont(),
+            NSForegroundColorAttributeName: [NSColor whiteColor],
+     }];
     
     [NSGraphicsContext restoreGraphicsState];
     
+    {
+        static NSDate * lastDate;
+        
+        if (!lastDate)
+            lastDate = [NSDate date];
+        
+        NSDate * now = [NSDate date];
+        NSTimeInterval delta = [now timeIntervalSinceDate:lastDate];
+        if (delta > 0.1) {
+            [self blitDisplays];
+            lastDate = now;
+        }
+    }
+}
+
+- (void)drawTopStripInMashine;
+{
+    const NSRect topStripRect = {
+        .origin.x    = 0,
+        .origin.y    = 12,
+        .size.width  = NIMaschineDisplaysWidth,
+        .size.height = 12
+    };
+    
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:leftDisplay.asNSGraphicsContext];
+    
+    [[NSColor whiteColor] setStroke];
+    [[NSColor whiteColor] setFill];
+    
+    [[NSBezierPath bezierPathWithRect:topStripRect] fill];
+    
+    [[self.stripTopString substringToIndex:27] drawInRect:topStripRect
+                                           withAttributes:@{
+                                      NSFontAttributeName: LCDFont(),
+                           NSForegroundColorAttributeName: [NSColor blackColor],
+    }];
+    
+    [NSGraphicsContext restoreGraphicsState];
+    
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:rightDisplay.asNSGraphicsContext];
+    
+    [[NSColor whiteColor] setStroke];
+    [[NSColor whiteColor] setFill];
+    
+    [[NSBezierPath bezierPathWithRect:topStripRect] fill];
+    
+    [[self.stripTopString substringFromIndex:27] drawInRect:topStripRect
+                                             withAttributes:@{
+                                        NSFontAttributeName: LCDFont(),
+                             NSForegroundColorAttributeName: [NSColor blackColor],
+     }];
+    
+    [NSGraphicsContext restoreGraphicsState];
+
     [self blitDisplays];
 }
 
-- (void)test;
+- (void)drawBottomStripInMashine;
 {
-    static int test = 0;
+    const NSRect bottomStripRect = {
+        .origin.x    = 0,
+        .origin.y    = 0,
+        .size.width  = NIMaschineDisplaysWidth,
+        .size.height = 12
+    };
     
-    self.tcrStirng = [NSString stringWithFormat:@"%d", test++];
-    [self drawTCRInMashine];
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:leftDisplay.asNSGraphicsContext];
     
-    [self performSelector:@selector(test) withObject:nil afterDelay:3];
+    [[NSColor whiteColor] setStroke];
+    [[NSColor whiteColor] setFill];
+    
+    [[NSBezierPath bezierPathWithRect:bottomStripRect] fill];
+    
+    [[self.stripBottomString substringToIndex:27] drawInRect:bottomStripRect
+                                              withAttributes:@{
+                                         NSFontAttributeName: LCDFont(),
+                              NSForegroundColorAttributeName: [NSColor blackColor],
+     }];
+    
+    [NSGraphicsContext restoreGraphicsState];
+    
+    [NSGraphicsContext saveGraphicsState];
+    [NSGraphicsContext setCurrentContext:rightDisplay.asNSGraphicsContext];
+    
+    [[NSColor whiteColor] setStroke];
+    [[NSColor whiteColor] setFill];
+    
+    [[NSBezierPath bezierPathWithRect:bottomStripRect] fill];
+    
+    [[self.stripBottomString substringFromIndex:27] drawInRect:bottomStripRect
+                                                withAttributes:@{
+                                           NSFontAttributeName: LCDFont(),
+                                NSForegroundColorAttributeName: [NSColor blackColor],
+    }];
+    
+    [NSGraphicsContext restoreGraphicsState];
+
+    [self blitDisplays];
 }
 
 @end

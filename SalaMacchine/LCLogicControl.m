@@ -208,13 +208,13 @@ static char Mackie7SegDisplayCharToChar(uint8_t c, BOOL * dotted);
 // 0xDx
 - (void)receivedChannelPressureChannel:(uint8_t)channel value:(uint8_t)value;
 {
-	NSLog(@"Mackie Peak Level %02x", value);
+//	NSLog(@"Mackie Peak Level %02x", value);
 }
 
 // 0xEx
 - (void)receivedPitchWheelChannel:(uint8_t)channel value:(uint16_t)value;
 {
-	NSLog(@"Mackie Fader Position %02x %04x", channel, value);
+//	NSLog(@"Mackie Fader Position %02x %04x", channel, value);
 }
 
 // 0xF0

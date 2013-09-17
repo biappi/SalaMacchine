@@ -12,7 +12,7 @@
 static const unsigned int ImageSize_8bpp     = NIMaschineDisplaysWidth * NIMaschineDisplaysHeight;
 static const unsigned int ImageSize_Maschine = ImageSize_8bpp / 3 * 2;
 
-NSFont * LCDFont()
+NSFont * _LCDFont()
 {
     static NSFont * font;
     static dispatch_once_t onceToken;
@@ -29,6 +29,11 @@ NSFont * LCDFont()
     });
     
     return font;
+}
+
+NSFont * LCDFont()
+{
+    return [NSFont fontWithName:@"Monaco" size:10];
 }
 
 @implementation SMImage
@@ -79,9 +84,7 @@ NSFont * LCDFont()
     [NSGraphicsContext restoreGraphicsState];
     
     [self convertToMaschine];
-    
-    image = CGBitmapContextCreateImage(context);
-    
+        
     bitmapData = [NSData dataWithBytesNoCopy:maschineData
                                       length:ImageSize_Maschine
                                 freeWhenDone:NO];
@@ -96,7 +99,6 @@ NSFont * LCDFont()
 
 - (void)dealloc;
 {
-    CGImageRelease(image);
     CGContextRelease(context);
 }
 
@@ -137,11 +139,16 @@ NSFont * LCDFont()
 
 - (NSImage *)asNSImage;
 {
-    return [[NSImage alloc] initWithCGImage:image size:NSMakeSize(NIMaschineDisplaysWidth, NIMaschineDisplaysHeight)];
+    CGImageRef x = CGBitmapContextCreateImage(context);
+    id y = [[NSImage alloc] initWithCGImage:x size:NSMakeSize(NIMaschineDisplaysWidth, NIMaschineDisplaysHeight)];
+    CGImageRelease(x);
+
+    return y;
 }
 
 - (NIDisplayDrawMessage *)asDrawMessage;
 {
+    [self convertToMaschine];
     return message;
 }
 
