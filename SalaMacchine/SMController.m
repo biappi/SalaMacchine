@@ -145,10 +145,10 @@
 - (void)drawTCRInMashine;
 {
     const NSRect tcrLabelSize = {
-        .origin.x    = 20,
-        .origin.y    = 20,
-        .size.width  = NIMaschineDisplaysWidth - 2 * 20,
-        .size.height = NIMaschineDisplaysHeight  - 2 * 20
+        .origin.x    = 0,
+        .origin.y    = NIMaschineDisplaysHeight - 20,
+        .size.width  = NIMaschineDisplaysWidth,
+        .size.height = 20
     };
     
     [NSGraphicsContext saveGraphicsState];
@@ -186,9 +186,9 @@
 {
     const NSRect topStripRect = {
         .origin.x    = 0,
-        .origin.y    = 12,
+        .origin.y    = 17,
         .size.width  = NIMaschineDisplaysWidth,
-        .size.height = 12
+        .size.height = 17
     };
     
     [NSGraphicsContext saveGraphicsState];
@@ -232,7 +232,7 @@
         .origin.x    = 0,
         .origin.y    = 0,
         .size.width  = NIMaschineDisplaysWidth,
-        .size.height = 12
+        .size.height = 17
     };
     
     [NSGraphicsContext saveGraphicsState];

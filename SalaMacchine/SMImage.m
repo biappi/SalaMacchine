@@ -33,7 +33,7 @@ NSFont * _LCDFont()
 
 NSFont * LCDFont()
 {
-    return [NSFont fontWithName:@"Monaco" size:10];
+    return [NSFont fontWithName:@"Monaco" size:15];
 }
 
 @implementation SMImage
