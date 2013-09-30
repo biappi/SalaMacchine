@@ -41,6 +41,13 @@
     logicInterface.controlObserver = self;
     
     ledState = [NILedState new];
+    [ledState setLed:NIMaschineLed_PageLeft intensity:0x7f];
+    [ledState setLed:NIMaschineLed_PageRight intensity:0x7f];
+
+    [ledState setLed:NIMaschineLed_GroupB intensity:0x7f];
+    [ledState setLed:NIMaschineLed_GroupE intensity:0x7f];
+    [ledState setLed:NIMaschineLed_GroupF intensity:0x7f];
+    [ledState setLed:NIMaschineLed_GroupG intensity:0x7f];
     
     leftDisplay = [SMImage new];
     leftDisplay.asDrawMessage.displayNumber = 0;
@@ -66,11 +73,20 @@
 {
     LCLogicControlLayout x;
     switch (button) {
-        translate(NIMaschineButton_Play,    LCLogicControl_Play);
-        translate(NIMaschineButton_Rec,     LCLogicControl_Record);
-        translate(NIMaschineButton_Erase,   LCLogicControl_Stop);
-        translate(NIMaschineButton_Forward, LCLogicControl_FastFwd);
-        translate(NIMaschineButton_Rewind,  LCLogicControl_Rewind);
+        translate(NIMaschineButton_Play,      LCLogicControl_Play);
+        translate(NIMaschineButton_Rec,       LCLogicControl_Record);
+        translate(NIMaschineButton_Restart,   LCLogicControl_Stop);
+        translate(NIMaschineButton_Forward,   LCLogicControl_FastFwd);
+        translate(NIMaschineButton_Rewind,    LCLogicControl_Rewind);
+            
+        translate(NIMaschineButton_PageLeft,  LCLogicControl_FaderBanks_BankLeft);
+        translate(NIMaschineButton_PageRight, LCLogicControl_FaderBanks_BankRight);
+        
+        translate(NIMaschineButton_GroupB,    LCLogicControl_CursorUp);
+        translate(NIMaschineButton_GroupE,    LCLogicControl_CursorLeft);
+        translate(NIMaschineButton_GroupF,    LCLogicControl_CursorDown);
+        translate(NIMaschineButton_GroupG,    LCLogicControl_CursorRight);
+            
         default: return;
     }
     
@@ -104,7 +120,7 @@
     switch (logicLed) {
         translate(LCLogicControl_Rewind,  NIMaschineLed_Rewind);
         translate(LCLogicControl_FastFwd, NIMaschineLed_Forward);
-        translate(LCLogicControl_Stop,    NIMaschineLed_Erase);
+        translate(LCLogicControl_Stop,    NIMaschineLed_Restart);
         translate(LCLogicControl_Play,    NIMaschineLed_Play);
         translate(LCLogicControl_Record,  NIMaschineLed_Rec);
         default: return;
